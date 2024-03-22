@@ -83,7 +83,7 @@ public class PanelDatosCancion extends javax.swing.JPanel {
         jLabel1.setText("Registro Canciones");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 6, -1, -1));
 
-        jLabel3.setText("Nombre:");
+        jLabel3.setText("Título:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         jLabel4.setText("Genero:");

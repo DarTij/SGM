@@ -23,6 +23,7 @@ public class PanelBotones extends javax.swing.JPanel {
         this.btnAgregar.addActionListener(manejador);
         this.btnEditar.addActionListener(manejador);
         this.btnEliminar.addActionListener(manejador);
+        this.btnReporte.addActionListener(manejador);
         this.btnSalir.addActionListener(manejador);
     }
 
@@ -39,6 +40,7 @@ public class PanelBotones extends javax.swing.JPanel {
         btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        btnReporte = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 204, 204));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -57,7 +59,10 @@ public class PanelBotones extends javax.swing.JPanel {
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Casa.png"))); // NOI18N
         btnSalir.setActionCommand("Salir");
-        add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(349, 24, -1, -1));
+        add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
+
+        btnReporte.setText("Reporte");
+        add(btnReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, 50));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -65,6 +70,7 @@ public class PanelBotones extends javax.swing.JPanel {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnReporte;
     private javax.swing.JButton btnSalir;
     // End of variables declaration//GEN-END:variables
 }

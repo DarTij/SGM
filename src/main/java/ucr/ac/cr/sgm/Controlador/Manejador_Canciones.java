@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import ucr.ac.cr.sgm.Modelo.Cancion;
 import ucr.ac.cr.sgm.Modelo.RegistroCancion;
 import ucr.ac.cr.sgm.Vista.FRM_Canciones;
+import ucr.ac.cr.sgm.Vista.FRM_Reporte;
 import ucr.ac.cr.sgm.Vista.PanelDatosCancion;
 
 /**
@@ -64,6 +65,12 @@ public class Manejador_Canciones implements ActionListener {
                 this.cancion=null;
                 this.cancion=this.registroC.buscarCancion(this.panelDatos.devolverCombo());
                 this.panelDatos.setCancion(cancion);
+            break;
+            
+            case "Reporte":
+                FRM_Reporte frm_Reporte=new FRM_Reporte();
+                frm_Reporte.setDataTable(this.registroC.getMatrizCanciones(),Cancion.Titulos_CANCION);
+                frm_Reporte.setVisible(true);
             break;
             
             case "Salir":

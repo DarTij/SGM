@@ -13,6 +13,10 @@ public class Cancion {
     private String genero;
     private int duracion;
     private int annoLanzamiento;
+    
+    public static final String[] Titulos_CANCION={"Título", "Género", "Duración", "Año Lanzamiento"};
+    
+    
 
     public Cancion() {
     }
@@ -22,6 +26,20 @@ public class Cancion {
         this.genero = genero;
         this.duracion = duracion;
         this.annoLanzamiento = annoLanzamiento;
+    }
+    
+    public String getDatosCancion(int columna){
+        switch (columna) {
+            case 0:
+                return this.titulo;
+            case 1:
+                return this.genero;
+            case 2:
+                return String.valueOf(this.duracion);
+            case 3:
+                return String.valueOf(this.annoLanzamiento);
+        }
+        return "";
     }
 
     public String getTitulo() {

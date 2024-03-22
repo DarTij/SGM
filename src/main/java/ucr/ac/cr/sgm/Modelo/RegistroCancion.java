@@ -92,4 +92,14 @@ public class RegistroCancion {
         return titulos;
     }
     
+    public String[][] getMatrizCanciones(){
+        String[][] matrizCanciones=new String[this.listaCanciones.size()][Cancion.Titulos_CANCION.length];
+        for (int i = 0; i < matrizCanciones.length; i++) {
+            for (int j = 0; j < matrizCanciones[0].length; j++) {
+                matrizCanciones[i][j]=this.listaCanciones.get(i).getDatosCancion(j);
+            }
+        }
+        return matrizCanciones;
+    }
+    
 }
