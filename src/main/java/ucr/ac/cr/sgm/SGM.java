@@ -4,6 +4,8 @@
 
 package ucr.ac.cr.sgm;
 
+import ucr.ac.cr.sgm.Controlador.Manejador_Canciones;
+
 /**
  *
  * @author daryl
@@ -11,6 +13,6 @@ package ucr.ac.cr.sgm;
 public class SGM {
 
     public static void main(String[] args) {
-        
+        new Manejador_Canciones();
     }
 }

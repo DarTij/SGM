@@ -68,10 +68,20 @@ public class RegistroCancion {
             agregarCancion(cancion);
             mensaje="Se ha editado con éxito";
         } else {
-            mensaje="No existe la cancion buscada";
+            mensaje="No existe la canción buscada";
         }
         return mensaje;
     }//Edita la cancion deseada
+    
+    public String editar(Cancion cancion){
+        for (int i = 0; i < listaCanciones.size(); i++) {
+            if(this.listaCanciones.get(i).getId().equalsIgnoreCase(cancion.getId())){
+                this.listaCanciones.set(i, cancion);
+                return "Se ha editado correctamente";
+            }
+        }
+        return "No existe la canción buscada";
+    }
     
 //----------------------------------------------------------------------------------------------------------------------//
     public String[] getComboId(){
