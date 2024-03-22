@@ -11,6 +11,6 @@ package ucr.ac.cr.sgm;
 public class SGM {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
     }
 }

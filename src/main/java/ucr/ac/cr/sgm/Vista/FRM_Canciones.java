@@ -21,7 +21,7 @@ public class FRM_Canciones extends javax.swing.JFrame {
     
     /*Recibe un actionlistener y se lo envía a los metodos de los 2 paneles
     para que lo asignen a los componentes que escuchan algún evento*/
-    /*public void escuchadorMain(ActionListener manejador){
+    public void escuchadorMain(ActionListener manejador){
         this.panelBotones1.escucharBotones(manejador);
         this.panelDatosCancion1.escuchador(manejador);
     }//Fin del escuchador
@@ -33,7 +33,7 @@ public class FRM_Canciones extends javax.swing.JFrame {
     
     public PanelDatosCancion getPanelDatosCancion(){
         return this.panelDatosCancion1;
-    }*/
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

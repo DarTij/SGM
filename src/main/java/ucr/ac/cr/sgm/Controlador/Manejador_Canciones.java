@@ -23,14 +23,14 @@ public class Manejador_Canciones implements ActionListener {
     private Cancion cancion;
 //---------------------------------------------------------------------------------------------------------------------//
     
-   /* public Manejador_Canciones(){
+    public Manejador_Canciones(){
         this.frmCanciones=new FRM_Canciones();
         this.frmCanciones.escuchadorMain(this);
         this.registroC= new RegistroCancion();
         this.panelDatos=this.frmCanciones.getPanelDatosCancion();
         this.frmCanciones.setVisible(true);
         this.panelDatos.cargarCombo(this.registroC.getComboId());
-    }//Fin del constructor*/
+    }//Fin del constructor
 //---------------------------------------------------------------------------------------------------------------------//
     
     
