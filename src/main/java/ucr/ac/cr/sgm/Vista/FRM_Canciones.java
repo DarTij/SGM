@@ -5,6 +5,7 @@
 package ucr.ac.cr.sgm.Vista;
 
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +20,10 @@ public class FRM_Canciones extends javax.swing.JFrame {
         initComponents();
     }
     
+    public static void getMensaje(String msj){
+        JOptionPane.showMessageDialog(null, msj);
+    }
+    
     /*Recibe un actionlistener y se lo envía a los metodos de los 2 paneles
     para que lo asignen a los componentes que escuchan algún evento*/
     public void escuchadorMain(ActionListener manejador){
@@ -28,10 +33,9 @@ public class FRM_Canciones extends javax.swing.JFrame {
     
     public PanelBotones getPanelBotones(){
         return this.panelBotones1;
-        
     }
     
-    public PanelDatosCancion getPanelDatosCancion(){
+    public PanelDatosCancion getPanelDatosCancion() {
         return this.panelDatosCancion1;
     }
 
@@ -44,8 +48,8 @@ public class FRM_Canciones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelDatosCancion1 = new ucr.ac.cr.sgm.Vista.PanelDatosCancion();
         panelBotones1 = new ucr.ac.cr.sgm.Vista.PanelBotones();
+        panelDatosCancion1 = new ucr.ac.cr.sgm.Vista.PanelDatosCancion();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,14 +58,17 @@ public class FRM_Canciones extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelBotones1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelDatosCancion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelDatosCancion1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panelDatosCancion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelDatosCancion1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelBotones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(panelBotones1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();

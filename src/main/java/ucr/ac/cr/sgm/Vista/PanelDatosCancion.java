@@ -23,27 +23,24 @@ public class PanelDatosCancion extends javax.swing.JPanel {
     
     /*Metodo que recibe un objeto y carga la información de dicho objeto
     en los campos correspondientes*/
-    public void setCanciones(Cancion cancion){
-        this.txtId.setText(cancion.getId());
+    public void setCancion(Cancion cancion){
         this.txtTitulo.setText(cancion.getTitulo());
         this.txtDuracion.setText(""+cancion.getDuracion());
-        this.txtAnnoLanzamiento.setText(""+cancion.getAnnoLanzamiento());
         this.txtGenero.setText(cancion.getGenero());
+        this.txtAnnoLanzamiento.setText(""+cancion.getAnnoLanzamiento());
     }
     
     public Cancion getCancion(){
-        return new Cancion(this.txtId.getText(),
-            this.txtTitulo.getText(), 
+        return new Cancion( this.txtTitulo.getText(), 
             this.txtGenero.getText(), 
-            Integer.parseInt(this.txtAnnoLanzamiento.getText()), 
-            Integer.parseInt(this.txtDuracion.getText()));
+            Integer.parseInt(this.txtDuracion.getText()),
+            Integer.parseInt(this.txtAnnoLanzamiento.getText())) ;
     } 
     
     public void limpiar(){
-        this.txtId.setText("");
         this.txtTitulo.setText("");
-        this.txtDuracion.setText("");
-        this.txtAnnoLanzamiento.setText("");
+        this.txtDuracion.setText("0");
+        this.txtAnnoLanzamiento.setText("0");
         this.txtGenero.setText("");
     }
     
@@ -69,12 +66,10 @@ public class PanelDatosCancion extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
         txtTitulo = new javax.swing.JTextField();
         txtGenero = new javax.swing.JTextField();
         txtAnnoLanzamiento = new javax.swing.JTextField();
@@ -82,85 +77,49 @@ public class PanelDatosCancion extends javax.swing.JPanel {
         cboxTitulos = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(0, 153, 153));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel1.setText("Registro Canciones");
-
-        jLabel2.setText("Id:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 6, -1, -1));
 
         jLabel3.setText("Nombre:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         jLabel4.setText("Genero:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
         jLabel5.setText("Año Lanzamiento:");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         jLabel6.setText("Duración:");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 150, -1));
+        add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 150, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addGap(72, 72, 72)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtTitulo)
-                                .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAnnoLanzamiento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(182, 182, 182)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(cboxTitulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(cboxTitulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtAnnoLanzamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(68, Short.MAX_VALUE))
-        );
+        txtAnnoLanzamiento.setText("0");
+        add(txtAnnoLanzamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 150, -1));
+
+        txtDuracion.setText("0");
+        txtDuracion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDuracionActionPerformed(evt);
+            }
+        });
+        add(txtDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 150, -1));
+
+        cboxTitulos.setActionCommand("ComboTitulos");
+        add(cboxTitulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 50, 100, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtDuracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDuracionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDuracionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cboxTitulos;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -168,7 +127,6 @@ public class PanelDatosCancion extends javax.swing.JPanel {
     private javax.swing.JTextField txtAnnoLanzamiento;
     private javax.swing.JTextField txtDuracion;
     private javax.swing.JTextField txtGenero;
-    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

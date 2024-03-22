@@ -41,41 +41,23 @@ public class PanelBotones extends javax.swing.JPanel {
         btnSalir = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 204, 204));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Agregar.png"))); // NOI18N
+        btnAgregar.setActionCommand("Agregar");
+        add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 24, -1, -1));
 
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Editar.png"))); // NOI18N
+        btnEditar.setActionCommand("Editar");
+        add(btnEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 24, -1, -1));
 
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Borrar.png"))); // NOI18N
+        btnEliminar.setActionCommand("Eliminar");
+        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 24, -1, -1));
 
         btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Casa.png"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(btnAgregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addComponent(btnEditar)
-                .addGap(49, 49, 49)
-                .addComponent(btnEliminar)
-                .addGap(46, 46, 46)
-                .addComponent(btnSalir)
-                .addGap(38, 38, 38))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSalir)
-                    .addComponent(btnEditar)
-                    .addComponent(btnAgregar)
-                    .addComponent(btnEliminar))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
+        btnSalir.setActionCommand("Salir");
+        add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(349, 24, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
