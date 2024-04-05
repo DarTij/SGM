@@ -34,7 +34,7 @@ public class PanelDatosCancion extends javax.swing.JPanel {
         return new Cancion( this.txtTitulo.getText(), 
             this.txtGenero.getText(), 
             Integer.parseInt(this.txtDuracion.getText()),
-            Integer.parseInt(this.txtAnnoLanzamiento.getText())) ;
+            Integer.parseInt(this.txtAnnoLanzamiento.getText()));
     } 
     
     public void limpiar(){

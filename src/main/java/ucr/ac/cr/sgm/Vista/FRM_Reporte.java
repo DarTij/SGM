@@ -4,7 +4,11 @@
  */
 package ucr.ac.cr.sgm.Vista;
 
+import java.awt.event.MouseListener;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -15,15 +19,34 @@ public class FRM_Reporte extends javax.swing.JFrame {
     /**
      * Creates new form FRM_Reporte
      */
+    TableRowSorter<TableModel> sorter;
+    
     public FRM_Reporte() {
         initComponents();
     }
     
     public void setDataTable(String[][] data, String[] encabezado){
-        this.tblReporte.setModel(new DefaultTableModel(data, encabezado));
+        DefaultTableModel model = new DefaultTableModel(data, encabezado);
+        this.tblReporte.setModel(model);
+        this.tblReporte.setAutoCreateRowSorter(true);
+        this.sorter=new TableRowSorter<>(model);
+        this.tblReporte.setRowSorter(sorter);
         this.jScrollPane1.setViewportView(this.tblReporte);
     }
-
+    
+    public String[] getRow(){
+        String[] listSelect=new String[this.tblReporte.getColumnCount()];
+        int selectRow=this.tblReporte.getSelectedRow();
+        for(int i=0; i<listSelect.length;i++){
+            listSelect[i]=tblReporte.getValueAt(selectRow, i).toString();
+        }
+        return listSelect;
+    }
+    
+    public void listenMouse(MouseListener controller){
+        this.tblReporte.addMouseListener(controller);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,6 +59,8 @@ public class FRM_Reporte extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblReporte = new javax.swing.JTable();
         btnCerrar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txtFiltro = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,23 +84,42 @@ public class FRM_Reporte extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Filtro:");
+
+        txtFiltro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFiltroKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnCerrar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(222, 222, 222)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtFiltro))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCerrar)
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCerrar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -87,6 +131,10 @@ public class FRM_Reporte extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
 
+    private void txtFiltroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroKeyReleased
+        this.sorter.setRowFilter(RowFilter.regexFilter("(?i)"+this.txtFiltro.getText(),0));
+    }//GEN-LAST:event_txtFiltroKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -94,7 +142,9 @@ public class FRM_Reporte extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblReporte;
+    private javax.swing.JTextField txtFiltro;
     // End of variables declaration//GEN-END:variables
 }

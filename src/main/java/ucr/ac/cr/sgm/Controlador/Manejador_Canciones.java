@@ -6,6 +6,8 @@ package ucr.ac.cr.sgm.Controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import ucr.ac.cr.sgm.Modelo.Cancion;
 import ucr.ac.cr.sgm.Modelo.RegistroCancion;
 import ucr.ac.cr.sgm.Vista.FRM_Canciones;
@@ -16,12 +18,13 @@ import ucr.ac.cr.sgm.Vista.PanelDatosCancion;
  *
  * @author Estudiante
  */
-public class Manejador_Canciones implements ActionListener {
+public class Manejador_Canciones implements ActionListener, MouseListener {
     
     private RegistroCancion registroC;
     private FRM_Canciones frmCanciones;
     private PanelDatosCancion panelDatos;
     private Cancion cancion;
+    private FRM_Reporte frm_Reporte;
 //---------------------------------------------------------------------------------------------------------------------//
     
     public Manejador_Canciones(){
@@ -51,8 +54,8 @@ public class Manejador_Canciones implements ActionListener {
             case "Editar":
                 this.cancion=this.panelDatos.getCancion();
                 FRM_Canciones.getMensaje(this.registroC.editar(cancion));
-                    this.panelDatos.cargarCombo(this.registroC.getComboTitulo());
-                    panelDatos.limpiar();
+                this.panelDatos.cargarCombo(this.registroC.getComboTitulo());
+                panelDatos.limpiar();
             break;
             
             case "Eliminar":
@@ -68,13 +71,14 @@ public class Manejador_Canciones implements ActionListener {
             break;
             
             case "Reporte":
-                FRM_Reporte frm_Reporte=new FRM_Reporte();
+                frm_Reporte=new FRM_Reporte();
+                frm_Reporte.listenMouse(this);
                 frm_Reporte.setDataTable(this.registroC.getMatrizCanciones(),Cancion.Titulos_CANCION);
                 frm_Reporte.setVisible(true);
             break;
             
             case "Salir":
-                System.exit(0);
+                this.frmCanciones.dispose();
             break;
         }//Fin del switch
         
@@ -97,5 +101,34 @@ public class Manejador_Canciones implements ActionListener {
             return true;
         }
     }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        Cancion cancionSelected = new Cancion();
+        cancion.setTitulo(this.frm_Reporte.getRow()[0]);
+        cancion.setGenero(this.frm_Reporte.getRow()[1]);
+        cancion.setDuracion(Integer.parseInt(this.frm_Reporte.getRow()[2]));
+        cancion.setAnnoLanzamiento(Integer.parseInt(this.frm_Reporte.getRow()[3]));
+        this.panelDatos.setCancion(cancion);
+        this.frm_Reporte.dispose();
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+    }
+    
+    
     
 }//Fin de clase
