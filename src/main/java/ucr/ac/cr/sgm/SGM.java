@@ -4,7 +4,7 @@
 
 package ucr.ac.cr.sgm;
 
-import ucr.ac.cr.sgm.Controlador.Manejador_Canciones;
+import ucr.ac.cr.sgm.Controlador.Manejador_Menu;
 
 /**
  *
@@ -13,6 +13,6 @@ import ucr.ac.cr.sgm.Controlador.Manejador_Canciones;
 public class SGM {
 
     public static void main(String[] args) {
-        new Manejador_Canciones();
+        new Manejador_Menu();
     }
 }
